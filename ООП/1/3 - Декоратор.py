@@ -30,3 +30,13 @@ print(pow_int.__name__, pow_int.__doc__) # (*) wrapper None
 """
 ПОЛИТИКА retry
 """
+
+
+def log_calls(func):
+    @wraps(func)
+    def
+    
+    
+@log_calls
+def pow_int(x: int, y: int):
+    ...
