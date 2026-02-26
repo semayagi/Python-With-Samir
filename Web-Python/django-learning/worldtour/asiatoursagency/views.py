@@ -1,6 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from models import Tour
+# from django.http import HttpResponse
 
 # Default: get
 def index(request):
-    return HttpResponse("Asia Tours Agency")
+    tours = Tour.objects.all()
+    return render(request, 'tours/index.html') # Now we have proper HTML page
+    # return HttpResponse("Asia Tours Agency") - we aren't happy with this

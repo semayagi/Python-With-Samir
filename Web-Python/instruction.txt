@@ -3,7 +3,7 @@ Install virtual environment:
 > cd <folder>
 > pipenv shell
 
-It creates “Pipfile” inside folder
+It creates ï¿½Pipfileï¿½ inside folder
 Pipfile keeps all of configuration, dependencies, packages, python version, etc.
 Auto-generated
 
@@ -15,7 +15,7 @@ Create project:
 
 > django-admin startproject <project_name>
 
-“manage.py” is created inside, it is crucial not to tamper with it. This file helps creating application.
+ï¿½manage.pyï¿½ is created inside, it is crucial not to tamper with it. This file helps creating application.
 Create application inside project:
 
 > cd <project_name>
@@ -24,30 +24,33 @@ Create application inside project:
 Add application to <project_name>/settings.py:
 
     INSTALLED_APPS = [
-        …,
+        ï¿½,
         '<app_name>.apps.<app_name>Config'
     ]
 
 Next steps:
-1. Create view (e.g. “index”) inside views.py (from django.http import HttpResponse)
-2. Create urls.py and write “index” view into “urlpatterns” list, using path library (from django.urls import path, from . import views)
+1. Create view (e.g. ï¿½indexï¿½) inside views.py (from django.http import HttpResponse)
+2. Create urls.py and write ï¿½indexï¿½ view into ï¿½urlpatternsï¿½ list, using path library (from django.urls import path, from . import views)
 3. Connect global urls.py on the project level to app (from django.urls import include), including <project_name>.urls
 
 
-Run server – from <project_name> folder:
+Run server ï¿½ from <project_name> folder:
 > python manage.py runserver
 
 Apply migrations:
-> python manage.py makemigrations – makes migrations file
+> python manage.py makemigrations ï¿½ makes migrations file
 > python manage.py migrate
 
+Run shell using ipython:
+> pipenv run python manage.py shell -i ipython
+
 Files inside app folder:
-- __init__.py – when folder contains this file, python treats it as a package. Used to import app modules elsewhere in Django project
-- admin.py – registering models, providing user-friendly admin interface to interact with the data model
-- apps.py – app configuration. Particularly useful for pluggable applications, because it allows them to specify metadata or configuration hooks
-- models.py – define data models (and database in general). Each class in this file represents a database Table, attributes of the classes represent database Fields
-- tests.py – unit tests
-- views.py – request-response logic: Model-View-Template architecture (MVT)
+- __init__.py ï¿½ when folder contains this file, python treats it as a package. Used to import app modules elsewhere in Django project
+- admin.py ï¿½ registering models, providing user-friendly admin interface to interact with the data model
+- apps.py ï¿½ app configuration. Particularly useful for pluggable applications, because it allows them to specify metadata or configuration hooks
+- models.py ï¿½ define data models (and database in general). Each class in this file represents a database Table, attributes of the classes represent database Fields
+- tests.py ï¿½ unit tests
+- views.py ï¿½ request-response logic: Model-View-Template architecture (MVT)
 
 Migrations folder:
 Contains the migrations files.
