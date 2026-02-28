@@ -44,6 +44,9 @@ Apply migrations:
 Run shell using ipython:
 > pipenv run python manage.py shell -i ipython
 
+Create superuser:
+> python manage.py createsuperuser
+
 Files inside app folder:
 - __init__.py � when folder contains this file, python treats it as a package. Used to import app modules elsewhere in Django project
 - admin.py � registering models, providing user-friendly admin interface to interact with the data model
