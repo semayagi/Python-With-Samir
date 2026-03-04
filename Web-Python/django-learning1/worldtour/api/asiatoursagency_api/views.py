@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Tour
+from apps.asiatoursagency.models import Tour
 # from django.http import HttpResponse
 
 # Default: get

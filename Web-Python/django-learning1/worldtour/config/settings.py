@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,6 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Add the project root and subdirectories to Python path
+sys.path.append(str(BASE_DIR))
+sys.path.append(str(BASE_DIR / 'apps'))
+sys.path.append(str(BASE_DIR / 'api'))
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'asiatoursagency.apps.AsiatoursagencyConfig'
+    'api.asiatoursagency_api',
+    'apps.asiatoursagency'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'worldtour.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'worldtour.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
