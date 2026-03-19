@@ -1,0 +1,25 @@
+from django import forms
+from django.contrib.auth.models import User
+
+class RegisterForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
+    password_confirm = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'password_confirm']
+
+    # Custom clean method for additional validation 
+    def clean(self):
+        cleaned_data = super().clean() # Calls parent class's "clean" method - which cleans all fields in the form
+        password = cleaned_data.get('password')
+        password_confirm = cleaned_data.get('password_confirm')
+        # Check if the passwords match
+        if password and password_confirm and password != password_confirm:
+            raise forms.ValidationError("Passwords do not match!")
+        return cleaned_data
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=150)
+    password = forms.CharField(widget=forms.PasswordInput)
