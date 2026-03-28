@@ -1,0 +1,6 @@
+uv init
+uv venv
+uv add django django_split_settings django-rest-framework httpx psycopg asyncpg
+
+django-admin startproject config .
+
