@@ -1,3 +1,4 @@
+# Класс полуинтервала, обладающий двумя методами: overlaps (True/False - пересекаются ли два полуинтервала), intersection - непосредственно пересечение
 class TimeRange:
     def __init__(self, start, end):
         if start >= end:
